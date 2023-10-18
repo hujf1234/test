@@ -1,12 +1,2168 @@
 {
+  "version": "2.0.6",
   "summary": {
-    "title": "threat_demo",
-    "description": "1",
-    "owner": "1"
+    "title": "第一个威胁建模",
+    "owner": "hujf",
+    "description": "",
+    "id": 0
   },
   "detail": {
     "contributors": [],
-    "diagrams": [],
-    "reviewer": "1"
+    "diagrams": [
+      {
+        "id": 0,
+        "title": "通用威胁建模",
+        "diagramType": "STRIDE",
+        "placeholder": "New STRIDE diagram description",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.0.6",
+        "cells": [
+          {
+            "position": {
+              "x": 120,
+              "y": -240
+            },
+            "size": {
+              "width": 112.5,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "用户 / 浏览器"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 1,
+            "id": "68785693-4858-4583-8064-14dbf863981e",
+            "data": {
+              "type": "tm.Actor",
+              "name": "用户 / 浏览器",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "providesAuthentication": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "id": "c0835823-0a96-4a72-865d-0fdf7145b7ab",
+                  "title": "Web 身份验证和授权绕过",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "攻击者通过截取用户的token、session等信息，绕过web身份验证非法登录系统\n",
+                  "mitigation": "1.加强对用户登录时的身份验证\n2.对页面进行鉴权\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 2,
+                  "score": "9.8"
+                }
+              ],
+              "isBidirectional": null
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "socket响应",
+              "description": "",
+              "outOfScope": false,
+              "isBidirectional": false,
+              "reasonOutOfScope": "",
+              "protocol": "",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "id": "1765938c-fdd9-4f1a-9fe6-2d2213b6d3a0",
+                  "title": "Socket.Io-Parser 拒绝服务漏洞(CVE-2023-32695)",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "特制的 Socket.IO 数据包可以在 Socket.IO 服务器上触发未捕获的异常，从而杀死 Node.js 进程。",
+                  "mitigation": "建议您更新当前系统或软件至最新版，完成漏洞的修复。",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 26,
+                  "score": "6.2"
+                }
+              ]
+            },
+            "id": "c1bfa99d-05ba-4824-b86c-42ccbe48ec3e",
+            "labels": [
+              "socket响应"
+            ],
+            "source": {
+              "cell": "67326d3f-82df-4b03-856f-b8262a6724a2"
+            },
+            "target": {
+              "cell": "f25ff96c-1099-4258-ae44-13111e758aca"
+            },
+            "vertices": [
+              {
+                "x": 800,
+                "y": -310
+              },
+              {
+                "x": 690,
+                "y": -289.5
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "SOCKET请求",
+              "description": "",
+              "outOfScope": false,
+              "isBidirectional": false,
+              "reasonOutOfScope": "",
+              "protocol": "",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "id": "b0ed0315-0da8-4ee2-b2dd-9791867c3b05",
+                  "title": "PHP“socket_connect（）”缓冲区溢出漏洞（Windows）",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "PHP容易出现堆栈缓冲区溢出漏洞。",
+                  "mitigation": "更新至5.3.7或更高版本。",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 22,
+                  "score": "9"
+                }
+              ]
+            },
+            "id": "527e8f4b-730a-41eb-b1ab-90a8168a69f3",
+            "labels": [
+              "SOCKET请求"
+            ],
+            "source": {
+              "cell": "f25ff96c-1099-4258-ae44-13111e758aca"
+            },
+            "target": {
+              "cell": "67326d3f-82df-4b03-856f-b8262a6724a2"
+            },
+            "vertices": [
+              {
+                "x": 730,
+                "y": -370
+              },
+              {
+                "x": 800,
+                "y": -390
+              },
+              {
+                "x": 890,
+                "y": -370
+              },
+              {
+                "x": 920,
+                "y": -340
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "C后台写数据",
+              "description": "",
+              "outOfScope": false,
+              "isBidirectional": false,
+              "reasonOutOfScope": "",
+              "protocol": "",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "id": "4b564416-f566-425e-b74d-395b70050f06",
+                  "title": "mysql代码注入漏洞",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "mysql代码注入漏洞",
+                  "mitigation": "建议您更新当前系统或软件至最新版，完成漏洞的修复。",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 28,
+                  "score": "6.7"
+                }
+              ]
+            },
+            "id": "3e6aed8a-16e2-4b80-9793-b84661b9bae7",
+            "labels": [
+              "C后台写数据"
+            ],
+            "source": {
+              "cell": "67326d3f-82df-4b03-856f-b8262a6724a2"
+            },
+            "target": {
+              "cell": "933c4c3b-f57c-4941-81e6-d2e8e4a5364f"
+            },
+            "vertices": [
+              {
+                "x": 840,
+                "y": -170
+              },
+              {
+                "x": 810,
+                "y": -140
+              },
+              {
+                "x": 780,
+                "y": -90
+              },
+              {
+                "x": 760,
+                "y": -50
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "C后台读数据",
+              "description": "",
+              "outOfScope": false,
+              "isBidirectional": false,
+              "reasonOutOfScope": "",
+              "protocol": "",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "id": "6266618b-f8dd-4e46-a529-58d4bd9b4d4b",
+                  "title": "mysql代码注入漏洞",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "wix-embedded-mysql v4.6.1及以下版本的com.wix.mysql.distribution.Setup.apply组件中发现了代码注入漏洞。攻击者可以通过传递未经检查的参数来利用此漏洞。",
+                  "mitigation": "建议您更新当前系统或软件至最新版，完成漏洞的修复。",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 29,
+                  "score": "6.7"
+                }
+              ]
+            },
+            "id": "9836b544-72a8-4936-82dc-e31a2c6b5303",
+            "labels": [
+              "C后台读数据"
+            ],
+            "source": {
+              "cell": "933c4c3b-f57c-4941-81e6-d2e8e4a5364f"
+            },
+            "target": {
+              "cell": "67326d3f-82df-4b03-856f-b8262a6724a2"
+            },
+            "vertices": [
+              {
+                "x": 860,
+                "y": -90
+              },
+              {
+                "x": 880,
+                "y": -130
+              }
+            ]
+          },
+          {
+            "shape": "trust-broundary-curve",
+            "attrs": {
+              "line": {
+                "targetMarker": "",
+                "strokeDasharray": "7 5",
+                "sourceMarker": ""
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "labels": [
+              ""
+            ],
+            "data": {
+              "type": "tm.Boundary",
+              "name": "",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            },
+            "id": "13b674e0-e767-46eb-ae94-5e406fa23873",
+            "source": {
+              "x": 870,
+              "y": -480
+            },
+            "target": {
+              "x": 730,
+              "y": -240
+            },
+            "vertices": [
+              {
+                "x": 810,
+                "y": -300
+              },
+              {
+                "x": 770,
+                "y": -240
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "web写数据",
+              "description": "",
+              "outOfScope": false,
+              "isBidirectional": false,
+              "reasonOutOfScope": "",
+              "protocol": "",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "id": "dfec62e7-2788-40f7-828d-e5a3860a69b4",
+                  "title": "wix embedded mysql代码注入漏洞(CVE-2023-39021)",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "wix-embedded-mysql v4.6.1及以下版本的com.wix.mysql.distribution.Setup.apply组件中发现了代码注入漏洞。攻击者可以通过传递未经检查的参数来利用此漏洞。",
+                  "mitigation": "建议您更新当前系统或软件至最新版，完成漏洞的修复。",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 11,
+                  "score": "6.7"
+                }
+              ]
+            },
+            "id": "e3c3b734-1bfe-45ae-afc1-cc60528393ab",
+            "labels": [
+              "web写数据"
+            ],
+            "source": {
+              "cell": "f25ff96c-1099-4258-ae44-13111e758aca"
+            },
+            "target": {
+              "cell": "933c4c3b-f57c-4941-81e6-d2e8e4a5364f"
+            },
+            "vertices": [
+              {
+                "x": 600,
+                "y": -230
+              },
+              {
+                "x": 650,
+                "y": -130
+              },
+              {
+                "x": 670,
+                "y": -60
+              }
+            ]
+          },
+          {
+            "shape": "trust-broundary-curve",
+            "attrs": {
+              "line": {
+                "targetMarker": "",
+                "strokeDasharray": "7 5",
+                "sourceMarker": ""
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "labels": [
+              ""
+            ],
+            "data": {
+              "type": "tm.Boundary",
+              "name": "",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            },
+            "id": "9662c8de-58a9-4997-9197-222503fc33d6",
+            "source": {
+              "x": 490,
+              "y": -10
+            },
+            "target": {
+              "x": 910,
+              "y": -30
+            },
+            "vertices": [
+              {
+                "x": 700,
+                "y": -130
+              },
+              {
+                "x": 860,
+                "y": -80
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "接收消息",
+              "description": "",
+              "outOfScope": false,
+              "isBidirectional": false,
+              "reasonOutOfScope": "",
+              "protocol": "",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "id": "900aad04-593e-44d0-b1be-3069f442412b",
+                  "title": "Microsoft 消息队列远程代码执行漏洞",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Microsoft 消息队列远程代码执行漏洞",
+                  "mitigation": "安装 Windows 最新安全补丁。",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 24,
+                  "score": "9.8"
+                }
+              ]
+            },
+            "id": "7efa2130-abd6-4729-addc-3259ed77605c",
+            "labels": [
+              "接收消息"
+            ],
+            "source": {
+              "cell": "ac2f2bdb-6b72-4f0e-ad70-2d0ffb1f8b10"
+            },
+            "target": {
+              "cell": "f25ff96c-1099-4258-ae44-13111e758aca"
+            },
+            "vertices": [
+              {
+                "x": 450,
+                "y": -390
+              }
+            ]
+          },
+          {
+            "shape": "trust-broundary-curve",
+            "attrs": {
+              "line": {
+                "targetMarker": "",
+                "strokeDasharray": "7 5",
+                "sourceMarker": ""
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "labels": [
+              {
+                "attrs": {
+                  "text": {
+                    "text": ""
+                  }
+                }
+              }
+            ],
+            "data": {
+              "type": "tm.Boundary",
+              "name": "",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            },
+            "id": "60bc49a5-8ea1-43e1-877c-8d6e47ae07ed",
+            "source": {
+              "x": 510,
+              "y": -460
+            },
+            "target": {
+              "x": 370,
+              "y": -110
+            },
+            "vertices": [
+              {
+                "x": 420,
+                "y": -380
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "HTTP响应1\n",
+              "description": "",
+              "outOfScope": false,
+              "isBidirectional": false,
+              "reasonOutOfScope": "",
+              "protocol": "",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "id": "67ec793a-a48d-4d93-9ba4-06a76d407010",
+                  "title": "CRLF注入(HTTP响应拆分)",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "CRLF注入(HTTP响应拆分)主要是利用Web应用程序缺乏有效的输入验证，允许攻击者将CR 和LF 字符插入到应用程序响应的报头，从而将服务器的回应“拆分”成两个不同的HTTP 消息。攻击者通过发送一经过精心构造的HTTP请求，可能造成以下危害：\n1 跨站脚本攻击（XSS）\n2 web缓存中毒（我们称之为web损耗）\n3 通过对用户的攻击：这是第二种方式的一个特殊情况。它对单个用户的欺骗、对服务器单个页面的损耗，和暂时的磨损，也可以偷取到特定用户的session和cookie。\n4 劫持具体用户的页面敏感信息：攻击者欺骗服务器，并取得敏感用户的权限，并进入其用户的状态，访问到一些秘密信息。\n5 浏览器高速缓存中毒：攻击者强迫浏览器高速缓存中记录一个长和持续的磨损的网页，直到浏览器的高速缓存已经清洁。",
+                  "mitigation": "1.限制用户输入的CR和LF，或者对CR和LF字符正确编码后再输出，以防止注入自定义HTTP头。",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 6,
+                  "score": "10"
+                }
+              ]
+            },
+            "id": "8ef27498-182e-4c20-9da6-d95a30ba7f3c",
+            "labels": [
+              "HTTP响应1\n"
+            ],
+            "source": {
+              "cell": "f25ff96c-1099-4258-ae44-13111e758aca"
+            },
+            "target": {
+              "cell": "68785693-4858-4583-8064-14dbf863981e"
+            },
+            "vertices": [
+              {
+                "x": 460,
+                "y": -250
+              },
+              {
+                "x": 290,
+                "y": -220
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "HTTP请求",
+              "description": "",
+              "outOfScope": false,
+              "isBidirectional": false,
+              "reasonOutOfScope": "",
+              "protocol": "",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "id": "cfa4609a-3485-4809-be43-63be0ae0402a",
+                  "title": "表单CSRF跨站请求伪造攻击",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "CSRF(跨站请求伪造)攻击，就是攻击者盗用了被攻击者的身份，以被攻击者的名义发送恶意请求。CSRF漏洞可能会危及最终用户的数据和操作，如果被攻击对象是管理员，可能会危及整个Web应用程序。",
+                  "mitigation": "1.建议通过 referer、token 或者 验证码 来检测用户提交。\n2.建议尽量不要在页面的链接中暴露用户隐私信息。\n3.建议对于用户修改删除等操作最好都使用post 操作 。\n4.建议避免全站通用的cookie，严格设置cookie的域。\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 3,
+                  "score": "8"
+                },
+                {
+                  "id": "bbe3046d-5d44-4362-8121-e3d1d7e09910",
+                  "title": "Apache HTTP Server任意HTTP请求标头跨站脚本(XSS)式攻击漏洞(CNNVD-200607-476)",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": " IBM HTTP Server 6.0.2.13 之前的6.0版本和6.1.0.1之前的6.1 版本, 以及 (2) Apache HTTP Server 1.3.35之前的1.3版本, 2.0.58之前的2.0版本, 以及2.2.2之前的 2.2 版本中的http_protocol.c在, 出错信息中反映HTTP请求时，未从中清理Expect 标头，攻击者可能会利用可在请求中发送任意标头的web客户端组件进行跨站脚本(XSS)式攻击，比如使用Flash SWF文件。",
+                  "mitigation": "升级到版本1.3.35，2.0.58，2.2.2或更高版本，因为它已报告修复此漏洞。 需要升级，因为没有已知的解决方法。",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 14,
+                  "score": "6"
+                }
+              ]
+            },
+            "id": "84c27f20-3667-486d-b23f-c9c9440f1723",
+            "labels": [
+              "HTTP请求"
+            ],
+            "source": {
+              "cell": "68785693-4858-4583-8064-14dbf863981e"
+            },
+            "target": {
+              "cell": "f25ff96c-1099-4258-ae44-13111e758aca"
+            },
+            "vertices": [
+              {
+                "x": 240,
+                "y": -280
+              },
+              {
+                "x": 280,
+                "y": -310
+              },
+              {
+                "x": 350,
+                "y": -330
+              },
+              {
+                "x": 480,
+                "y": -330
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "发送消息",
+              "description": "",
+              "outOfScope": false,
+              "isBidirectional": false,
+              "reasonOutOfScope": "",
+              "protocol": "",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "id": "15072d6b-972a-4821-a8ae-21cd032bc963",
+                  "title": "Microsoft 消息队列远程代码执行漏洞",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Microsoft 消息队列远程代码执行漏洞",
+                  "mitigation": "安装 Windows 最新安全补丁。",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 25,
+                  "score": "9.8"
+                }
+              ]
+            },
+            "id": "3bee7ed5-7a1f-4d1b-b856-b8b712a78ecc",
+            "labels": [
+              "发送消息"
+            ],
+            "source": {
+              "cell": "f25ff96c-1099-4258-ae44-13111e758aca"
+            },
+            "target": {
+              "cell": "ac2f2bdb-6b72-4f0e-ad70-2d0ffb1f8b10"
+            },
+            "vertices": [
+              {
+                "x": 490,
+                "y": -420
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "web读数据",
+              "description": "",
+              "outOfScope": false,
+              "isBidirectional": false,
+              "reasonOutOfScope": "",
+              "protocol": "",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "id": "7cb363fe-d860-4781-8282-221ba7e4879d",
+                  "title": " mysql代码注入漏洞",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "wix-embedded-mysql v4.6.1及以下版本的com.wix.mysql.distribution.Setup.apply组件中发现了代码注入漏洞。攻击者可以通过传递未经检查的参数来利用此漏洞。",
+                  "mitigation": "建议您更新当前系统或软件至最新版，完成漏洞的修复。",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 30,
+                  "score": "6.7"
+                }
+              ]
+            },
+            "id": "446937f4-48b2-45f6-a93f-554f2ef4d2fa",
+            "labels": [
+              "web读数据"
+            ],
+            "source": {
+              "cell": "933c4c3b-f57c-4941-81e6-d2e8e4a5364f"
+            },
+            "target": {
+              "cell": "f25ff96c-1099-4258-ae44-13111e758aca"
+            },
+            "vertices": [
+              {
+                "x": 610,
+                "y": -100
+              },
+              {
+                "x": 590,
+                "y": -150
+              }
+            ]
+          },
+          {
+            "position": {
+              "x": 460,
+              "y": -350
+            },
+            "size": {
+              "width": 170,
+              "height": 110
+            },
+            "attrs": {
+              "text": {
+                "text": "web管理平台"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "zIndex": 11,
+            "id": "f25ff96c-1099-4258-ae44-13111e758aca",
+            "data": {
+              "type": "tm.Process",
+              "name": "web管理平台",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "privilegeLevel": "",
+              "hasOpenThreats": false,
+              "threats": [
+                {
+                  "id": "32ee0c15-56aa-4369-a46c-95b3f7654d25",
+                  "title": "检测到目标服务器上存在web应用默认目录",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "在Web服务器上检测到敏感文件，目录或CGI。攻击者可能利用其获取敏感信息。",
+                  "mitigation": "如果不需要这些文件或目录，建议删除或者严格限制目录的访问权限",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 19,
+                  "score": "5"
+                },
+                {
+                  "id": "e78fb4fe-ec01-4bd0-98e6-abc2d7ca6893",
+                  "title": "TongWEB应用服务器存在文件上传漏洞",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "TongWEB应用服务器是一款标准、安全、高可用并具丰富功能的企业级应用服务器。\n\nTongWEB应用服务器存在文件上传漏洞，攻击者可利用该漏洞上传WebShell，获取服务器控制权",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 20,
+                  "score": "9"
+                }
+              ],
+              "isBidirectional": null
+            }
+          },
+          {
+            "position": {
+              "x": 630,
+              "y": -30
+            },
+            "size": {
+              "width": 200,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "数据库"
+              },
+              "topLine": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "zIndex": 12,
+            "id": "933c4c3b-f57c-4941-81e6-d2e8e4a5364f",
+            "data": {
+              "type": "tm.Store",
+              "name": "数据库",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "isALog": false,
+              "storesCredentials": false,
+              "isEncrypted": false,
+              "isSigned": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "id": "db284174-4b88-4fae-9731-ef6286980b55",
+                  "title": "Oracle MySQL 安全漏洞(CVE-2023-22046)",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Oracle MySQL是美国甲骨文（Oracle）公司的一套开源的关系数据库管理系统。Oracle MySQL 的 MySQL Server product 存在安全漏洞，该漏洞源于 Server： Optimizer 模块允许高权限攻击者通过多种协议进行网络访问来危害 MySQL 服务器。成功攻击此漏洞可能会导致未经授权的 MySQL 服务器挂起或频繁重复崩溃（完整的 DOS）。",
+                  "mitigation": "建议您更新当前系统或软件至最新版，完成漏洞的修复。",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 10,
+                  "score": "4.3"
+                },
+                {
+                  "id": "76876abc-147e-4357-8c6b-34598bc42705",
+                  "title": "Oracle MySQL 安全漏洞",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Oracle MySQL是美国甲骨文（Oracle）公司的一套开源的关系数据库管理系统。Oracle MySQL 8.0.32 版本及之前版本的 Server： Optimizer 组件存在安全漏洞。高权限攻击者利用该漏洞可以通过多种协议访问网络来破坏 MySQL 服务器。",
+                  "mitigation": "建议您更新当前系统或软件至最新版，完成漏洞的修复。",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 12,
+                  "score": "4.9"
+                }
+              ],
+              "isBidirectional": null
+            }
+          },
+          {
+            "position": {
+              "x": 920,
+              "y": -310
+            },
+            "size": {
+              "width": 140,
+              "height": 90
+            },
+            "attrs": {
+              "text": {
+                "text": "C /Linux后台"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "zIndex": 13,
+            "id": "67326d3f-82df-4b03-856f-b8262a6724a2",
+            "data": {
+              "type": "tm.Process",
+              "name": "C /Linux后台",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "privilegeLevel": "",
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "id": "60f31650-86ce-48a7-b321-3eba69d17382",
+                  "title": "LinuxConf缓冲区溢出漏洞",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "LinuxConf容易出现缓冲区溢出漏洞。",
+                  "mitigation": "使用防火墙禁用从网络访问Linuxconf。如果您不需要Linuxconf，请使用Linuxconf实用程序将其禁用。",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 21,
+                  "score": "9"
+                }
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 190,
+              "y": -490
+            },
+            "size": {
+              "width": 120,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "消息队列"
+              },
+              "topLine": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "zIndex": 14,
+            "id": "ac2f2bdb-6b72-4f0e-ad70-2d0ffb1f8b10",
+            "data": {
+              "type": "tm.Store",
+              "name": "消息队列",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "isALog": false,
+              "storesCredentials": false,
+              "isEncrypted": false,
+              "isSigned": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "id": "4e1638c3-c615-4fa2-9989-844506a06211",
+                  "title": "Sun GlassFish Enterprise Server / Sun Java System消息队列特权提升漏洞",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Sun GlassFish Enterprise是用于交付和管理复合应用程序的轻量级企业服务总线和集成平台；Sun Java System Application Server是一款基于Java的系统应用服务器。Java Message Service (JMS)组件存在未明错误，攻击者可以利用漏洞提升特权。",
+                  "mitigation": "用户可参考如下供应商提供的安全公告获得补丁信息：http://www.oracle.com/technetwork/topics/security/cpujan2011-194091.html",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 23,
+                  "score": "6"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": 1,
+        "title": "SOC威胁建模",
+        "diagramType": "STRIDE",
+        "placeholder": "New STRIDE diagram description",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.0.6",
+        "cells": [
+          {
+            "position": {
+              "x": 130,
+              "y": 140
+            },
+            "size": {
+              "width": 112.5,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "管理员"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 2,
+            "id": "04f0dfe3-62ff-41c7-81a5-5e71b083b51d",
+            "data": {
+              "type": "tm.Actor",
+              "name": "管理员",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "providesAuthentication": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "id": "a8caa66b-b543-4397-b7f1-a135927bb016",
+                  "title": "2",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Spoofing",
+                  "description": "Provide a description for this threat",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 35,
+                  "score": ""
+                }
+              ],
+              "isBidirectional": null
+            }
+          },
+          {
+            "position": {
+              "x": 130,
+              "y": 353
+            },
+            "size": {
+              "width": 112.5,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "审计员"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 3,
+            "id": "b0cbb3ca-0342-4054-83b3-212bf2799c88",
+            "data": {
+              "type": "tm.Actor",
+              "name": "审计员",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "providesAuthentication": false,
+              "hasOpenThreats": false,
+              "threats": []
+            }
+          },
+          {
+            "position": {
+              "x": 400,
+              "y": 125
+            },
+            "size": {
+              "width": 180,
+              "height": 90
+            },
+            "attrs": {
+              "text": {
+                "text": "身份认证处理"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "zIndex": 6,
+            "id": "140234c1-68a8-4eff-849b-b095bd8fd683",
+            "data": {
+              "type": "tm.Process",
+              "name": "身份认证处理",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "privilegeLevel": "",
+              "hasOpenThreats": false,
+              "threats": []
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "登录",
+              "description": "",
+              "outOfScope": false,
+              "isBidirectional": false,
+              "reasonOutOfScope": "",
+              "protocol": "",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "id": "3401ba94-f45d-4abc-aa9c-8ecab3133485",
+                  "title": "1",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Provide a description for this threat",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 34,
+                  "score": ""
+                }
+              ]
+            },
+            "id": "d9758106-1e03-47c0-9c1e-605eeefd30d6",
+            "labels": [
+              "登录"
+            ],
+            "source": {
+              "cell": "04f0dfe3-62ff-41c7-81a5-5e71b083b51d"
+            },
+            "target": {
+              "cell": "140234c1-68a8-4eff-849b-b095bd8fd683"
+            },
+            "vertices": [
+              {
+                "x": 340,
+                "y": 110
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "登录",
+              "description": "",
+              "outOfScope": false,
+              "isBidirectional": false,
+              "reasonOutOfScope": "",
+              "protocol": "",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": false,
+              "threats": []
+            },
+            "id": "01e8d074-7e1a-4ad9-8893-88ddece75eae",
+            "labels": [
+              "登录"
+            ],
+            "source": {
+              "cell": "b0cbb3ca-0342-4054-83b3-212bf2799c88"
+            },
+            "target": {
+              "cell": "140234c1-68a8-4eff-849b-b095bd8fd683"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "查看日志",
+              "description": "",
+              "outOfScope": false,
+              "isBidirectional": false,
+              "reasonOutOfScope": "",
+              "protocol": "",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": false,
+              "threats": []
+            },
+            "id": "3b8b2db2-19e7-4d72-bf5c-82386b63baff",
+            "labels": [
+              "查看日志"
+            ],
+            "source": {
+              "cell": "140234c1-68a8-4eff-849b-b095bd8fd683"
+            },
+            "target": {
+              "cell": "b0cbb3ca-0342-4054-83b3-212bf2799c88"
+            },
+            "vertices": [
+              {
+                "x": 380,
+                "y": 285
+              },
+              {
+                "x": 340,
+                "y": 325
+              },
+              {
+                "x": 320,
+                "y": 360
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "登录成功",
+              "description": "",
+              "outOfScope": false,
+              "isBidirectional": false,
+              "reasonOutOfScope": "",
+              "protocol": "",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": false,
+              "threats": []
+            },
+            "id": "609bc074-0468-4da2-985d-9a30697d0651",
+            "labels": [
+              "登录成功"
+            ],
+            "source": {
+              "cell": "140234c1-68a8-4eff-849b-b095bd8fd683"
+            },
+            "target": {
+              "cell": "f757d51d-635c-42d3-ba89-39fe96a2c44e"
+            },
+            "vertices": [
+              {
+                "x": 580,
+                "y": 150
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "保存任务",
+              "description": "",
+              "outOfScope": false,
+              "isBidirectional": false,
+              "reasonOutOfScope": "",
+              "protocol": "",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": false,
+              "threats": []
+            },
+            "id": "a013b2d5-2dfb-40f3-b695-f0a7decfe842",
+            "labels": [
+              "保存任务"
+            ],
+            "source": {
+              "cell": "f757d51d-635c-42d3-ba89-39fe96a2c44e"
+            },
+            "target": {
+              "cell": "793570d4-502c-454d-aac9-d04d53f79842"
+            },
+            "vertices": [
+              {
+                "x": 730,
+                "y": 285
+              },
+              {
+                "x": 750,
+                "y": 340
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "调用接口",
+              "description": "",
+              "outOfScope": false,
+              "isBidirectional": false,
+              "reasonOutOfScope": "",
+              "protocol": "",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": false,
+              "threats": []
+            },
+            "id": "5cbe0e72-564d-437b-a251-2843cbc7a1ac",
+            "labels": [
+              "调用接口"
+            ],
+            "source": {
+              "cell": "f757d51d-635c-42d3-ba89-39fe96a2c44e"
+            },
+            "target": {
+              "cell": "575cfb51-c878-43aa-bf2b-f0a036d4bc1c"
+            },
+            "vertices": [
+              {
+                "x": 860,
+                "y": 130
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "保存数据",
+              "description": "",
+              "outOfScope": false,
+              "isBidirectional": false,
+              "reasonOutOfScope": "",
+              "protocol": "",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": false,
+              "threats": []
+            },
+            "id": "9870a89d-0d8d-4507-aa04-e6690a94b967",
+            "labels": [
+              "保存数据"
+            ],
+            "source": {
+              "cell": "575cfb51-c878-43aa-bf2b-f0a036d4bc1c"
+            },
+            "target": {
+              "cell": "793570d4-502c-454d-aac9-d04d53f79842"
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "查看报表",
+              "description": "",
+              "outOfScope": false,
+              "isBidirectional": false,
+              "reasonOutOfScope": "",
+              "protocol": "",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": false,
+              "threats": []
+            },
+            "id": "40045bd6-5a9a-4c45-9ed2-a2fccbc4d19e",
+            "labels": [
+              "查看报表"
+            ],
+            "source": {
+              "cell": "f757d51d-635c-42d3-ba89-39fe96a2c44e"
+            },
+            "target": {
+              "cell": "7076b463-ec9d-4db1-8ecd-bdf793fc37ae"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "创建巡检任务",
+              "description": "",
+              "outOfScope": false,
+              "isBidirectional": false,
+              "reasonOutOfScope": "",
+              "protocol": "",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": false,
+              "threats": []
+            },
+            "id": "1d1cbe68-14d1-4613-bf74-928416963a90",
+            "labels": [
+              "创建巡检任务"
+            ],
+            "source": {
+              "cell": "04f0dfe3-62ff-41c7-81a5-5e71b083b51d"
+            },
+            "target": {
+              "cell": "140234c1-68a8-4eff-849b-b095bd8fd683"
+            },
+            "vertices": [
+              {
+                "x": 340,
+                "y": 140
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "创建网元",
+              "description": "",
+              "outOfScope": false,
+              "isBidirectional": false,
+              "reasonOutOfScope": "",
+              "protocol": "",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": false,
+              "threats": []
+            },
+            "id": "74e5050e-37fa-4312-8cca-5fbd18af34f7",
+            "labels": [
+              "创建网元"
+            ],
+            "source": {
+              "cell": "04f0dfe3-62ff-41c7-81a5-5e71b083b51d"
+            },
+            "target": {
+              "cell": "140234c1-68a8-4eff-849b-b095bd8fd683"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "登录失败",
+              "description": "",
+              "outOfScope": false,
+              "isBidirectional": false,
+              "reasonOutOfScope": "",
+              "protocol": "",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": false,
+              "threats": []
+            },
+            "id": "2138ef76-ec36-4ee1-be33-74f5ad890258",
+            "labels": [
+              "登录失败"
+            ],
+            "source": {
+              "cell": "f757d51d-635c-42d3-ba89-39fe96a2c44e"
+            },
+            "target": {
+              "cell": "140234c1-68a8-4eff-849b-b095bd8fd683"
+            },
+            "vertices": [
+              {
+                "x": 570,
+                "y": 200
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "保存网元",
+              "description": "",
+              "outOfScope": false,
+              "isBidirectional": false,
+              "reasonOutOfScope": "",
+              "protocol": "",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": false,
+              "threats": []
+            },
+            "id": "647c7fc8-d0d3-48b0-a625-dac4d0f8c8b9",
+            "labels": [
+              "保存网元"
+            ],
+            "source": {
+              "cell": "f757d51d-635c-42d3-ba89-39fe96a2c44e"
+            },
+            "target": {
+              "x": 840,
+              "y": 410
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "返回结果",
+              "description": "",
+              "outOfScope": false,
+              "isBidirectional": false,
+              "reasonOutOfScope": "",
+              "protocol": "",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": false,
+              "threats": []
+            },
+            "id": "416fe39c-1db5-4e6e-b8b7-5d6e7e4abeb5",
+            "labels": [
+              "返回结果"
+            ],
+            "source": {
+              "cell": "575cfb51-c878-43aa-bf2b-f0a036d4bc1c"
+            },
+            "target": {
+              "cell": "f757d51d-635c-42d3-ba89-39fe96a2c44e"
+            },
+            "vertices": [
+              {
+                "x": 850,
+                "y": 200
+              }
+            ]
+          },
+          {
+            "shape": "trust-broundary-curve",
+            "attrs": {
+              "line": {
+                "targetMarker": "",
+                "strokeDasharray": "7 5",
+                "sourceMarker": ""
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "labels": [
+              {
+                "attrs": {
+                  "text": {
+                    "text": ""
+                  }
+                }
+              }
+            ],
+            "data": {
+              "type": "tm.Boundary",
+              "name": "",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            },
+            "id": "08c63f23-eae3-4b1b-9e90-74d7b508309a",
+            "source": {
+              "x": 270,
+              "y": 40
+            },
+            "target": {
+              "x": 360,
+              "y": 440
+            },
+            "vertices": [
+              {
+                "x": 390,
+                "y": 310
+              }
+            ]
+          },
+          {
+            "shape": "trust-broundary-curve",
+            "attrs": {
+              "line": {
+                "targetMarker": "",
+                "strokeDasharray": "7 5",
+                "sourceMarker": ""
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "labels": [
+              {
+                "attrs": {
+                  "text": {
+                    "text": ""
+                  }
+                }
+              }
+            ],
+            "data": {
+              "type": "tm.Boundary",
+              "name": "",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            },
+            "id": "0de0a5e8-9ae2-4421-a6d3-9934b52a03e5",
+            "source": {
+              "x": 870,
+              "y": 60
+            },
+            "target": {
+              "x": 740,
+              "y": 430
+            }
+          },
+          {
+            "shape": "trust-broundary-curve",
+            "attrs": {
+              "line": {
+                "targetMarker": "",
+                "strokeDasharray": "7 5",
+                "sourceMarker": ""
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "labels": [
+              {
+                "attrs": {
+                  "text": {
+                    "text": ""
+                  }
+                }
+              }
+            ],
+            "data": {
+              "type": "tm.Boundary",
+              "name": "",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            },
+            "id": "480ff63f-ba27-44a2-a734-cb0340d43220",
+            "source": {
+              "x": 870,
+              "y": 260
+            },
+            "target": {
+              "x": 970,
+              "y": 360
+            }
+          },
+          {
+            "position": {
+              "x": 780,
+              "y": 413
+            },
+            "size": {
+              "width": 120,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "数据库"
+              },
+              "topLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "zIndex": 11,
+            "id": "793570d4-502c-454d-aac9-d04d53f79842",
+            "data": {
+              "type": "tm.Store",
+              "name": "数据库",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "isALog": false,
+              "storesCredentials": false,
+              "isEncrypted": false,
+              "isSigned": false,
+              "hasOpenThreats": false,
+              "threats": [],
+              "isBidirectional": null
+            }
+          },
+          {
+            "position": {
+              "x": 600,
+              "y": 125
+            },
+            "size": {
+              "width": 180,
+              "height": 100
+            },
+            "attrs": {
+              "text": {
+                "text": "SOC管理中心"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "zIndex": 12,
+            "id": "f757d51d-635c-42d3-ba89-39fe96a2c44e",
+            "data": {
+              "type": "tm.Process",
+              "name": "SOC管理中心",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "privilegeLevel": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "isBidirectional": null
+            }
+          },
+          {
+            "position": {
+              "x": 941.25,
+              "y": 120
+            },
+            "size": {
+              "width": 130,
+              "height": 80
+            },
+            "attrs": {
+              "text": {
+                "text": "C/Linux后台"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "zIndex": 13,
+            "id": "575cfb51-c878-43aa-bf2b-f0a036d4bc1c",
+            "data": {
+              "type": "tm.Process",
+              "name": "C/Linux后台",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "privilegeLevel": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "isBidirectional": null
+            }
+          },
+          {
+            "position": {
+              "x": 420,
+              "y": 413
+            },
+            "size": {
+              "width": 112.5,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "客户"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 14,
+            "id": "7076b463-ec9d-4db1-8ecd-bdf793fc37ae",
+            "data": {
+              "type": "tm.Actor",
+              "name": "客户",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "providesAuthentication": false,
+              "hasOpenThreats": false,
+              "threats": [],
+              "isBidirectional": null
+            }
+          }
+        ]
+      }
+    ],
+    "diagramTop": 2,
+    "reviewer": "",
+    "threatTop": 35
   }
 }
